@@ -1,0 +1,33 @@
+{
+    "name":         "tadcka/routing",
+    "homepage":     "https://github.com/tadcka/Routing",
+    "description":  "Tadcka routing component.",
+    "keywords":     ["routing"],
+    "type":         "library",
+    "license":      "MIT",
+    "authors": [
+        {
+            "name":   "Tadas Gliaubicas",
+            "email":  "tadcka89@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "php": ">=5.3.3",
+        "symfony-cmf/routing": "~1.2.0",
+        "aferrandini/urlizer": "1.0.*"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "~4.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "Tadcka\\Component\\Routing\\": ""
+        }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "0.1.x-dev"
+        }
+    }
+}
