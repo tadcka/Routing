@@ -144,11 +144,11 @@ abstract class Route extends SymfonyRoute implements RouteInterface
     /**
      * {@inheritdoc}
      */
-    public function addLocale($locale, array $requirements)
+    public function addLocale($defaultLocale, array $requirements)
     {
         $this->prefix = '/{_locale}';
 
-        $this->setDefault('_locale', $locale);
+        $this->setDefault('_locale', $defaultLocale);
         $this->addRequirements(array('_locale' => implode('|', $requirements)));
     }
 

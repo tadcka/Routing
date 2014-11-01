@@ -170,8 +170,8 @@ interface RouteInterface extends RouteObjectInterface
     /**
      * Add locale.
      *
-     * @param string $locale      Default locale
-     * @param array $requirements Locale requirements
+     * @param string $defaultLocale Default locale
+     * @param array $requirements   Locale requirements
      */
-    public function addLocale($locale, array $requirements);
+    public function addLocale($defaultLocale, array $requirements);
 }
