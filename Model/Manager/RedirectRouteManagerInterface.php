@@ -21,6 +21,15 @@ use Tadcka\Component\Routing\Model\RedirectRouteInterface;
 interface RedirectRouteManagerInterface
 {
     /**
+     * Find redirect route by name.
+     *
+     * @param string $name
+     *
+     * @return null|RedirectRouteInterface
+     */
+    public function findByName($name);
+
+    /**
      * Create new redirect route.
      *
      * @return RedirectRouteInterface

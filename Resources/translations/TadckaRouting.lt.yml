@@ -1,3 +1,7 @@
 form:
+  redirect_route:
+    uri: Uri (Vieningas išteklių indentifikatorius)
+    route_name: Maršruto pavadinamas
+    route_target: Maršruto objektas
   route:
     pattern: Maršruto šablonas

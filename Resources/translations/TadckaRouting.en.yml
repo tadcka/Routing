@@ -1,3 +1,7 @@
 form:
+  redirect_route:
+    uri: Uri (Uniform resource identifier)
+    route_name: Route name
+    route_target: Route target
   route:
     pattern: Route pattern
