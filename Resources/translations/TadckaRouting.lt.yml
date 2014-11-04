@@ -1,6 +1,6 @@
 form:
   redirect_route:
-    uri: Uri (Vieningas išteklių indentifikatorius)
+    uri: Interneto adresas
     route_name: Maršruto pavadinamas
     route_target: Maršruto objektas
   route:

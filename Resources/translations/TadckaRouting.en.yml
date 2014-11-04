@@ -1,6 +1,6 @@
 form:
   redirect_route:
-    uri: Uri (Uniform resource identifier)
+    uri: Uri
     route_name: Route name
     route_target: Route target
   route:

@@ -94,6 +94,15 @@ interface RouteInterface extends RouteObjectInterface
     public function setPath($pattern);
 
     /**
+     * Gets a default value.
+     *
+     * @param string $name A variable name
+     *
+     * @return mixed The default value or null when not given
+     */
+    public function getDefault($name);
+
+    /**
      * Sets a default value.
      *
      * @param string $name    A variable name
