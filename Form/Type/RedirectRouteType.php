@@ -44,7 +44,14 @@ class RedirectRouteType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('permanent', 'checkbox', array('label' => 'form.redirect_route.permanent'));
+        $builder->add(
+            'permanent',
+            'checkbox',
+            array(
+                'label' => 'form.redirect_route.permanent',
+                'required' => false
+            )
+        );
 
         $builder->add(
             'uri',
