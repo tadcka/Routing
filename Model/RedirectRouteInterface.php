@@ -18,7 +18,7 @@ use Symfony\Cmf\Component\Routing\RedirectRouteInterface as BaseRedirectRouteInt
  *
  * @since 8/28/14 2:17 PM
  */
-interface RedirectRouteInterface extends BaseRedirectRouteInterface
+interface RedirectRouteInterface extends BaseRedirectRouteInterface, RouteInterface
 {
     /**
      * Set absolute uri to redirect to.

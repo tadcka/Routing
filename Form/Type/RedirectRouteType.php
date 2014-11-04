@@ -44,6 +44,8 @@ class RedirectRouteType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
+        $builder->add('permanent', 'checkbox', array('label' => 'form.redirect_route.permanent'));
+
         $builder->add(
             'uri',
             'text',
@@ -65,9 +67,8 @@ class RedirectRouteType extends AbstractType
 
         $builder->add(
             'routeTarget',
-            'text',
+            'tadcka_route_choice',
             array(
-                'label' => 'form.redirect_route.route_target',
                 'required' => false,
             )
         );

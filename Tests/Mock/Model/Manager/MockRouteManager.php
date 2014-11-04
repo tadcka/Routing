@@ -111,4 +111,14 @@ class MockRouteManager extends BaseRouteManager
     {
         return 'Tadcka\Component\Routing\Tests\Mock\Model\MockRoute';
     }
+
+    /**
+     * Find all route name and pattern.
+     *
+     * @return array
+     */
+    public function findAllNameAndPattern()
+    {
+        // TODO: Implement findAllNameAndPattern() method.
+    }
 }

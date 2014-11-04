@@ -1,7 +1,10 @@
 form:
   redirect_route:
+    permanent: Nuolatinis peradresavimas
     uri: Interneto adresas
     route_name: Maršruto pavadinamas
-    route_target: Maršruto objektas
   route:
     pattern: Maršruto šablonas
+  route_choice:
+    empty_value: Pasirinkite
+    route_target: Maršruto objektas

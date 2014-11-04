@@ -21,6 +21,13 @@ use Tadcka\Component\Routing\Model\RouteInterface;
 interface RouteManagerInterface
 {
     /**
+     * Find all route name and pattern.
+     *
+     * @return array
+     */
+    public function findAllNameAndPattern();
+
+    /**
      * Find by name.
      *
      * @param string $name

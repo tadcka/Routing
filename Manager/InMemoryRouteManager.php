@@ -46,6 +46,14 @@ class InMemoryRouteManager extends RouteManager
     /**
      * {@inheritdoc}
      */
+    public function findAllNameAndPattern()
+    {
+        return $this->routeManager->findAllNameAndPattern();
+    }
+
+    /**
+     * {@inheritdoc}
+     */
     public function findByName($name)
     {
         if (isset($this->routes[$name])) {
