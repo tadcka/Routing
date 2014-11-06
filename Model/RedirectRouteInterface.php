@@ -32,11 +32,11 @@ interface RedirectRouteInterface extends BaseRedirectRouteInterface, RouteInterf
     /**
      * Set target route.
      *
-     * @param RouteInterface $routeTarget
+     * @param null|RouteInterface $routeTarget
      *
      * @return RedirectRouteInterface
      */
-    public function setRouteTarget(RouteInterface $routeTarget);
+    public function setRouteTarget(RouteInterface $routeTarget = null);
 
     /**
      * Get the target route document this route redirects to.

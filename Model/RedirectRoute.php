@@ -74,7 +74,7 @@ abstract class RedirectRoute extends Route implements RedirectRouteInterface
     /**
      * {@inheritdoc}
      */
-    public function setRouteTarget(RouteInterface $routeTarget)
+    public function setRouteTarget(RouteInterface $routeTarget = null)
     {
         $this->routeTarget = $routeTarget;
 
