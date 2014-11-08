@@ -29,4 +29,3 @@ abstract class RedirectRouteManager implements RedirectRouteManagerInterface
         return $redirectObject;
     }
 }
- 
