@@ -44,6 +44,15 @@ class RouteType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder->add(
+            'visible',
+            'checkbox',
+            array(
+                'label' => 'form.route.visible',
+                'required' => false,
+            )
+        );
+
+        $builder->add(
             'routePattern',
             'text',
             array(

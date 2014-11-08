@@ -16,8 +16,13 @@ namespace Tadcka\Component\Routing\Model;
  *
  * @since 7/1/14 10:54 PM
  */
-abstract class RedirectRoute extends Route implements RedirectRouteInterface
+abstract class RedirectRoute implements RedirectRouteInterface
 {
+    /**
+     * @var string
+     */
+    protected $name;
+
     /**
      * Absolute uri to redirect to.
      *
@@ -40,6 +45,13 @@ abstract class RedirectRoute extends Route implements RedirectRouteInterface
     protected $routeTarget;
 
     /**
+     * Route parameters.
+     *
+     * @var array
+     */
+    protected $parameters = array();
+
+    /**
      * Whether this is a permanent redirect. Defaults to true.
      *
      * @var bool
@@ -47,11 +59,38 @@ abstract class RedirectRoute extends Route implements RedirectRouteInterface
     protected $permanent = true;
 
     /**
-     * Route parameters.
-     *
-     * @var array
+     * {@inheritdoc}
      */
-    protected $parameters = array();
+    public function getContent()
+    {
+        return $this;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getRouteKey()
+    {
+        return $this->getId();
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
 
     /**
      * {@inheritdoc}
@@ -110,24 +149,6 @@ abstract class RedirectRoute extends Route implements RedirectRouteInterface
     /**
      * {@inheritdoc}
      */
-    public function setPermanent($permanent)
-    {
-        $this->permanent = $permanent;
-
-        return $this;
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function isPermanent()
-    {
-        return $this->permanent;
-    }
-
-    /**
-     * {@inheritdoc}
-     */
     public function getParameters()
     {
         return $this->parameters;
@@ -141,5 +162,23 @@ abstract class RedirectRoute extends Route implements RedirectRouteInterface
         $this->parameters = $parameters;
 
         return $this;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function setPermanent($permanent)
+    {
+        $this->permanent = $permanent;
+
+        return $this;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function isPermanent()
+    {
+        return $this->permanent;
     }
 }

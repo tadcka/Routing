@@ -28,6 +28,40 @@ interface RouteInterface extends RouteObjectInterface
     public function getId();
 
     /**
+     * Gets a default value.
+     *
+     * @param string $name
+     *
+     * @return mixed
+     */
+    public function getDefault($name);
+
+    /**
+     * Sets a default value.
+     *
+     * @param string $name
+     * @param mixed $default
+     *
+     * @return RouteInterface
+     */
+    public function setDefault($name, $default);
+
+    /**
+     * Returns the defaults.
+     *
+     * @return array
+     */
+    public function getDefaults();
+
+    /**
+     * Add locale prefix.
+     *
+     * @param string $defaultLocale
+     * @param array $requirements
+     */
+    public function addLocale($defaultLocale, array $requirements);
+
+    /**
      * Get name.
      *
      * @param string $name
@@ -42,6 +76,59 @@ interface RouteInterface extends RouteObjectInterface
      * @return string
      */
     public function getName();
+
+    /**
+     * Returns the requirements.
+     *
+     * @return array
+     */
+    public function getRequirements();
+
+    /**
+     * Sets the requirements.
+     *
+     * @param array $requirements
+     *
+     * @return RouteInterface
+     */
+    public function setRequirements(array $requirements);
+
+    /**
+     * Adds requirements.
+     *
+     * @param array $requirements
+     *
+     * @return RouteInterface
+     */
+    public function addRequirements(array $requirements);
+
+    /**
+     * Returns the requirement for the given key.
+     *
+     * @param string $key
+     *
+     * @return string|null
+     */
+    public function getRequirement($key);
+
+    /**
+     * Checks if a requirement is set for the given key.
+     *
+     * @param string $key
+     *
+     * @return bool
+     */
+    public function hasRequirement($key);
+
+    /**
+     * Sets a requirement for the given key.
+     *
+     * @param string $key
+     * @param string $regex
+     *
+     * @return RouteInterface
+     */
+    public function setRequirement($key, $regex);
 
     /**
      * Set routePattern.
@@ -60,6 +147,22 @@ interface RouteInterface extends RouteObjectInterface
     public function getRoutePattern();
 
     /**
+     * Returns the pattern for the path.
+     *
+     * @return string
+     */
+    public function getPath();
+
+    /**
+     * Sets the pattern for the path.
+     *
+     * @param string $pattern
+     *
+     * @return RouteInterface
+     */
+    public function setPath($pattern);
+
+    /**
      * Set prefix.
      *
      * @param string $prefix
@@ -76,111 +179,18 @@ interface RouteInterface extends RouteObjectInterface
     public function getPrefix();
 
     /**
-     * Returns the pattern for the path.
+     * Set visible.
      *
-     * @return string The path pattern
+     * @param bool $visible
+     *
+     * @return RouteInterface
      */
-    public function getPath();
+    public function setVisible($visible);
 
     /**
-     * Sets the pattern for the path.
+     * Check if is visible.
      *
-     * This method implements a fluent interface.
-     *
-     * @param string $pattern The path pattern
-     *
-     * @return Route The current Route instance
+     * @return bool
      */
-    public function setPath($pattern);
-
-    /**
-     * Gets a default value.
-     *
-     * @param string $name A variable name
-     *
-     * @return mixed The default value or null when not given
-     */
-    public function getDefault($name);
-
-    /**
-     * Sets a default value.
-     *
-     * @param string $name    A variable name
-     * @param mixed  $default The default value
-     *
-     * @return Route The current Route instance
-     */
-    public function setDefault($name, $default);
-
-    /**
-     * Returns the defaults.
-     *
-     * @return array The defaults
-     */
-    public function getDefaults();
-
-    /**
-     * Returns the requirements.
-     *
-     * @return array The requirements
-     */
-    public function getRequirements();
-
-    /**
-     * Sets the requirements.
-     *
-     * This method implements a fluent interface.
-     *
-     * @param array $requirements The requirements
-     *
-     * @return Route The current Route instance
-     */
-    public function setRequirements(array $requirements);
-
-    /**
-     * Adds requirements.
-     *
-     * This method implements a fluent interface.
-     *
-     * @param array $requirements The requirements
-     *
-     * @return Route The current Route instance
-     */
-    public function addRequirements(array $requirements);
-
-    /**
-     * Returns the requirement for the given key.
-     *
-     * @param string $key The key
-     *
-     * @return string|null The regex or null when not given
-     */
-    public function getRequirement($key);
-
-    /**
-     * Checks if a requirement is set for the given key.
-     *
-     * @param string $key A variable name
-     *
-     * @return bool    true if a requirement is specified, false otherwise
-     */
-    public function hasRequirement($key);
-
-    /**
-     * Sets a requirement for the given key.
-     *
-     * @param string $key   The key
-     * @param string $regex The regex
-     *
-     * @return Route The current Route instance
-     */
-    public function setRequirement($key, $regex);
-
-    /**
-     * Add locale.
-     *
-     * @param string $defaultLocale Default locale
-     * @param array $requirements   Locale requirements
-     */
-    public function addLocale($defaultLocale, array $requirements);
+    public function isVisible();
 }

@@ -66,11 +66,49 @@ class InMemoryRouteManager extends RouteManager
     /**
      * {@inheritdoc}
      */
+    public function findVisibleByName($name)
+    {
+        if (isset($this->routes[$name])) {
+            $route = $this->routes[$name];
+
+            return $route->isVisible() ? $route : null;
+        }
+
+        return $this->routeManager->findVisibleByName($name);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
     public function findByNames(array $names)
     {
-        $names = array_diff($names, array_keys($this->routes));
+        $routes = array();
+        $diffNames = array_diff($names, array_keys($this->routes));
 
-        return array_merge(array_values($this->routes), $this->routeManager->findByNames($names));
+        foreach ($this->routes as $name => $route) {
+            if (in_array($name, $names)) {
+                $routes[] = $route;
+            }
+        }
+
+        return array_merge($routes, $this->routeManager->findByNames($diffNames));
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function findVisibleByNames(array $names)
+    {
+        $routes = array();
+        $diffNames = array_diff($names, array_keys($this->routes));
+
+        foreach ($this->routes as $name => $route) {
+            if (in_array($name, $names) && $route->isVisible()) {
+                $routes[] = $route;
+            }
+        }
+
+        return array_merge($routes, $this->routeManager->findVisibleByNames($diffNames));
     }
 
     /**
@@ -101,9 +139,28 @@ class InMemoryRouteManager extends RouteManager
             }
         }
 
-        $routePatterns = array_diff($routePatterns, array_keys($result));
+        $diffRoutePatterns = array_diff($routePatterns, array_keys($result));
 
-        return array_merge(array_values($result), $this->routeManager->findByRoutePatterns($routePatterns));
+        return array_merge(array_values($result), $this->routeManager->findByRoutePatterns($diffRoutePatterns));
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function findVisibleByRoutePatterns(array $routePatterns)
+    {
+        $result = array();
+        foreach ($routePatterns as $routePattern) {
+            foreach ($this->routes as $route) {
+                if (($routePattern === $route->getRoutePattern()) && $route->isVisible()) {
+                    $result[$routePattern] = $route;
+                }
+            }
+        }
+
+        $diffRoutePatterns = array_diff($routePatterns, array_keys($result));
+
+        return array_merge(array_values($result), $this->routeManager->findVisibleByRoutePatterns($diffRoutePatterns));
     }
 
     /**

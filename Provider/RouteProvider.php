@@ -60,7 +60,7 @@ class RouteProvider implements RouteProviderInterface
             return $collection;
         }
 
-        $routes = $this->routeManager->findByRoutePatterns($candidates);
+        $routes = $this->routeManager->findVisibleByRoutePatterns($candidates);
         foreach ($routes as $route) {
             $collection->add($route->getName(), $route);
         }
@@ -73,10 +73,10 @@ class RouteProvider implements RouteProviderInterface
      */
     public function getRouteByName($name)
     {
-        $route = $this->routeManager->findByName($name);
+        $route = $this->routeManager->findVisibleByName($name);
 
         if (null === $route) {
-            throw new RouteNotFoundException("No route found for path '$name'");
+            throw new RouteNotFoundException(sprintf("No route found for path %s", $name));
         }
 
         return $route;
@@ -88,7 +88,7 @@ class RouteProvider implements RouteProviderInterface
     public function getRoutesByNames($names)
     {
         if (null !== $names && is_array($names)) {
-            return $this->routeManager->findByNames($names);
+            return $this->routeManager->findVisibleByNames($names);
         }
 
         return array();

@@ -121,4 +121,40 @@ class MockRouteManager extends BaseRouteManager
     {
         // TODO: Implement findAllNameAndPattern() method.
     }
+
+    /**
+     * Find visible route by name.
+     *
+     * @param string $name
+     *
+     * @return null|RouteInterface
+     */
+    public function findVisibleByName($name)
+    {
+        // TODO: Implement findVisibleByName() method.
+    }
+
+    /**
+     * Find visible routes by many names.
+     *
+     * @param array $names
+     *
+     * @return array|RouteInterface[]
+     */
+    public function findVisibleByNames(array $names)
+    {
+        // TODO: Implement findVisibleByNames() method.
+    }
+
+    /**
+     * Find visible routes by many route patterns.
+     *
+     * @param array $routePatterns
+     *
+     * @return array|RouteInterface[]
+     */
+    public function findVisibleByRoutePatterns(array $routePatterns)
+    {
+        // TODO: Implement findVisibleByRoutePatterns() method.
+    }
 }

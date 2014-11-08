@@ -18,8 +18,31 @@ use Symfony\Cmf\Component\Routing\RedirectRouteInterface as BaseRedirectRouteInt
  *
  * @since 8/28/14 2:17 PM
  */
-interface RedirectRouteInterface extends BaseRedirectRouteInterface, RouteInterface
+interface RedirectRouteInterface extends BaseRedirectRouteInterface
 {
+    /**
+     * Get id.
+     *
+     * @return int
+     */
+    public function getId();
+
+    /**
+     * Get name.
+     *
+     * @param string $name
+     *
+     * @return RouteInterface
+     */
+    public function setName($name);
+
+    /**
+     * Get name.
+     *
+     * @return string
+     */
+    public function getName();
+
     /**
      * Set absolute uri to redirect to.
      *
@@ -39,11 +62,7 @@ interface RedirectRouteInterface extends BaseRedirectRouteInterface, RouteInterf
     public function setRouteTarget(RouteInterface $routeTarget = null);
 
     /**
-     * Get the target route document this route redirects to.
-     *
-     * If non-null, it is added as route into the parameters, which will lead
-     * to have the generate call issued by the RedirectController to have
-     * the target route in the parameters.
+     * Get target route.
      *
      * @return RouteInterface
      */
@@ -59,15 +78,6 @@ interface RedirectRouteInterface extends BaseRedirectRouteInterface, RouteInterf
     public function setRouteName($routeName);
 
     /**
-     * Set permanent.
-     *
-     * @param bool $permanent
-     *
-     * @return RedirectRouteInterface
-     */
-    public function setPermanent($permanent);
-
-    /**
      * Set route parameters.
      *
      * @param array $parameters
@@ -75,4 +85,13 @@ interface RedirectRouteInterface extends BaseRedirectRouteInterface, RouteInterf
      * @return RedirectRouteInterface
      */
     public function setParameters(array $parameters);
+
+    /**
+     * Set permanent.
+     *
+     * @param bool $permanent
+     *
+     * @return RedirectRouteInterface
+     */
+    public function setPermanent($permanent);
 }

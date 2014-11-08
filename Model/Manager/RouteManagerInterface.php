@@ -28,7 +28,7 @@ interface RouteManagerInterface
     public function findAllNameAndPattern();
 
     /**
-     * Find by name.
+     * Find route by name.
      *
      * @param string $name
      *
@@ -37,13 +37,31 @@ interface RouteManagerInterface
     public function findByName($name);
 
     /**
-     * Find by many names.
+     * Find visible route by name.
+     *
+     * @param string $name
+     *
+     * @return null|RouteInterface
+     */
+    public function findVisibleByName($name);
+
+    /**
+     * Find routes by many names.
      *
      * @param array $names
      *
      * @return array|RouteInterface[]
      */
     public function findByNames(array $names);
+
+    /**
+     * Find visible routes by many names.
+     *
+     * @param array $names
+     *
+     * @return array|RouteInterface[]
+     */
+    public function findVisibleByNames(array $names);
 
     /**
      * Find by route pattern.
@@ -55,13 +73,22 @@ interface RouteManagerInterface
     public function findByRoutePattern($routePattern);
 
     /**
-     * Find by many route patterns.
+     * Find routes by many route patterns.
      *
      * @param array $routePatterns
      *
      * @return array|RouteInterface[]
      */
     public function findByRoutePatterns(array $routePatterns);
+
+    /**
+     * Find visible routes by many route patterns.
+     *
+     * @param array $routePatterns
+     *
+     * @return array|RouteInterface[]
+     */
+    public function findVisibleByRoutePatterns(array $routePatterns);
 
     /**
      * Get all routes.
