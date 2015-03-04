@@ -1,9 +1,9 @@
 <?php
 
 /*
- * This file is part of the Evispa package.
+ * This file is part of the Tadcka package.
  *
- * (c) Evispa <info@evispa.lt>
+ * (c) Tadas Gliaubicas <tadcka89@gmail.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -13,11 +13,6 @@ namespace Tadcka\Component\Routing\Tests\Helper;
 
 use Tadcka\Component\Routing\Helper\LocaleHelper;
 
-/**
- * @author Tadas Gliaubicas <tadas@evispa.lt>
- *
- * @since 9/5/14 10:20 AM
- */
 class LocaleHelperTest extends \PHPUnit_Framework_TestCase
 {
     /**
