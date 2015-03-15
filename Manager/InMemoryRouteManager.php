@@ -215,6 +215,7 @@ class InMemoryRouteManager extends RouteManager
      */
     public function clear()
     {
+        $this->routes = array();
         $this->routeManager->clear();
     }
 
