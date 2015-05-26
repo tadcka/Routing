@@ -40,6 +40,36 @@ class RouteGeneratorTest extends \PHPUnit_Framework_TestCase
             '/a-ceei-su-uz',
             $generator->generateRouteFromText('  Ą..čĘėĮ/šŲ..ūŽ/  ')
         );
+
+        $this->assertEquals(
+            '/',
+            $generator->generateRouteFromText('')
+        );
+    }
+
+    public function testGenerateRouteFromTextWithSlash()
+    {
+        $generator = new RouteGenerator(new MockRouteManager());
+
+        $this->assertEquals(
+            '/tadcka/route',
+            $generator->generateRouteFromText('/ tadcka / route', true)
+        );
+
+        $this->assertEquals(
+            '/0',
+            $generator->generateRouteFromText('0', true)
+        );
+
+        $this->assertEquals(
+            '/',
+            $generator->generateRouteFromText('', true)
+        );
+
+        $this->assertEquals(
+            '/tadcka-route',
+            $generator->generateRouteFromText('\tadcka\route', true)
+        );
     }
 
     /**

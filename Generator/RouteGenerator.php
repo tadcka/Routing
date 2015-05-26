@@ -42,11 +42,23 @@ class RouteGenerator
      * Generate route from text.
      *
      * @param string $text
+     * @param bool $withSlash
      *
      * @return string
      */
-    public function generateRouteFromText($text)
+    public function generateRouteFromText($text, $withSlash = false)
     {
+        if ($withSlash) {
+            $result = '';
+            foreach (explode('/', $text) as $value) {
+                if ('' !== $value = trim($value)) {
+                    $result .= '/' . Urlizer::urlize($value);
+                }
+            }
+
+            return $result ?: '/';
+        }
+
         return $this->normalizeRoute(Urlizer::urlize($text));
     }
 
@@ -54,12 +66,13 @@ class RouteGenerator
      * Generate unique route.
      *
      * @param RouteInterface $route
+     * @param bool $withSlash
      *
      * @return null|RouteInterface
      */
-    public function generateUniqueRoute(RouteInterface $route)
+    public function generateUniqueRoute(RouteInterface $route, $withSlash = false)
     {
-        $originalRoutePattern = $this->generateRouteFromText($route->getRoutePattern());
+        $originalRoutePattern = $this->generateRouteFromText($route->getRoutePattern(), $withSlash);
 
         if ($originalRoutePattern) {
             $key = 0;
@@ -108,6 +121,6 @@ class RouteGenerator
      */
     private function normalizeRoute($route)
     {
-        return '/'.ltrim(trim($route), '/');
+        return '/' . ltrim(trim($route), '/');
     }
 }
