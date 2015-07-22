@@ -72,13 +72,15 @@ class RedirectRouteType extends AbstractType
             )
         );
 
-        $builder->add(
-            'routeTarget',
-            'tadcka_route_choice',
-            array(
-                'required' => false,
-            )
-        );
+        if ($options['use_route_target']) {
+            $builder->add(
+                'routeTarget',
+                'tadcka_route_choice',
+                array(
+                    'required' => false,
+                )
+            );
+        }
     }
 
     /**
@@ -90,6 +92,7 @@ class RedirectRouteType extends AbstractType
             array(
                 'translation_domain' => 'TadckaRouting',
                 'data_class' => $this->redirectRouteClass,
+                'use_route_target' => true,
             )
         );
     }
