@@ -11,7 +11,7 @@
             "email":  "tadcka89@gmail.com"
         }
     ],
-    "minimum-stability": "dev",
+    "minimum-stability": "stable",
     "require": {
         "php": ">=5.4",
         "symfony-cmf/routing": "~1.2",
@@ -31,7 +31,7 @@
     },
     "extra": {
         "branch-alias": {
-            "dev-master": "0.2.x-dev"
+            "dev-master": "0.3.x-dev"
         }
     }
 }
