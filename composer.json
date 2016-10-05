@@ -24,7 +24,10 @@
     "autoload": {
         "psr-4": {
             "Tadcka\\Component\\Routing\\": ""
-        }
+        },
+        "exclude-from-classmap": [
+            "/Tests/"
+        ]
     },
     "extra": {
         "branch-alias": {
