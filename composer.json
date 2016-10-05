@@ -11,9 +11,9 @@
             "email":  "tadcka89@gmail.com"
         }
     ],
-    "minimum-stability": "dev",
+    "minimum-stability": "stable",
     "require": {
-        "php": ">=5.3.3",
+        "php": ">=5.4",
         "symfony-cmf/routing": "~1.2",
         "aferrandini/urlizer": "1.0.*"
     },
@@ -24,11 +24,14 @@
     "autoload": {
         "psr-4": {
             "Tadcka\\Component\\Routing\\": ""
-        }
+        },
+        "exclude-from-classmap": [
+            "/Tests/"
+        ]
     },
     "extra": {
         "branch-alias": {
-            "dev-master": "0.2.x-dev"
+            "dev-master": "0.3.x-dev"
         }
     }
 }
