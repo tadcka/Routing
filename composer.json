@@ -13,7 +13,7 @@
     ],
     "minimum-stability": "dev",
     "require": {
-        "php": ">=5.3.3",
+        "php": ">=5.4",
         "symfony-cmf/routing": "~1.2",
         "aferrandini/urlizer": "1.0.*"
     },
